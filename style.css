@@ -1,3 +1,13 @@
-.striked {
+.striked span {
     text-decoration: line-through;
+    color: gray;
+}
+
+
+li .fa-xmark:hover {
+    color: red;
+}
+
+li * {
+    cursor: pointer;
 }

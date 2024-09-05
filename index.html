@@ -33,7 +33,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center"
                                 v-for="(item, index) in itemList" :class="{ 'striked': item.done }">
-                                {{ item.text}}
+                                <span @click="item.done=true">{{ item.text}}</span>
                                 <i class="fa fa-xmark" @click="deleteItem(index)"></i>
                             </li>
                         </ul>
@@ -41,8 +41,8 @@
                     <div class="card">
                         <div class="form d-flex justify-content-between align-items-center">
                             <input type="text" placeholder="Aggiungi una nuova voce alla tua lista"
-                                class="form-control w-75" v-model="newItem.text" @keyup.enter="addNewItem(newItem)">
-                            <button class="btn btn-warning w-25" @click="addNewItem(newItem)"><i
+                                class="form-control w-75" v-model="newItemText" @keyup.enter="addNewItem(newItemText)">
+                            <button class="btn btn-warning w-25" @click="addNewItem(newItemText)"><i
                                     class="fa-regular fa-square-plus fa-xl text-light"></i></button>
                         </div>
                     </div>
