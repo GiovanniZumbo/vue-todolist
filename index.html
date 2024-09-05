@@ -32,17 +32,17 @@
                     <div class="card" style="width: 26rem;">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center"
-                                v-for="(item,i) in itemList" :class="{ 'striked': item.done }">
-                                {{ i }} - {{ item.text}}
-                                <i class="fa fa-xmark" @click="deleteItem(i)"></i>
+                                v-for="(item, index) in itemList" :class="{ 'striked': item.done }">
+                                {{ item.text}}
+                                <i class="fa fa-xmark" @click="deleteItem(index)"></i>
                             </li>
                         </ul>
                     </div>
                     <div class="card">
                         <div class="form d-flex justify-content-between align-items-center">
-                            <input type="text" placeholder="Aggiungi una nuova voce alla tua lista" class="form-control"
-                                v-model="newItem.text" @keyup.enter="addNewItem(newItem)">
-                            <button class="btn btn-warning" @click="addNewItem(newItem)"><i
+                            <input type="text" placeholder="Aggiungi una nuova voce alla tua lista"
+                                class="form-control w-75" v-model="newItem.text" @keyup.enter="addNewItem(newItem)">
+                            <button class="btn btn-warning w-25" @click="addNewItem(newItem)"><i
                                     class="fa-regular fa-square-plus fa-xl text-light"></i></button>
                         </div>
                     </div>

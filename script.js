@@ -56,15 +56,21 @@ createApp({
             }
         },
 
-    },
+        // * Rimuove un elemento dalla lista
+
+        deleteItem(itemIndex) {
+            this.itemList.splice(itemIndex, 1);
+            console.log(`é stato cancellato l\' item numero: ${itemIndex}`)
+        },
+
+    }
+
 
     // | Prendo quello che ho nell'input
     // | Lo metto dentro newItem.text
     // | Pusho newItem dentro itemList
     // | Resetto newItem
 
-    // deleteItem(i) {
-    //     this.itemList[i].splice(item, 1);
-    // },
+
 
 }).mount('#app')
