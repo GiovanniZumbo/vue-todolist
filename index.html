@@ -10,6 +10,10 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css'
         integrity='sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=='
         crossorigin='anonymous' />
+    <!-- FA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- JS -->
@@ -21,7 +25,31 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <main id="app">
+        <h2 class="text-center my-3">Todo List</h2>
+        <div class="container">
+            <div class="row d-flex  justify-content-center align-items-center mt-5">
+                <div class="col-4">
+                    <div class="card" style="width: 26rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center"
+                                v-for="(item,i) in itemList" :class="{ 'striked': item.done }">
+                                {{ i }} - {{ item.text}}
+                                <i class="fa fa-xmark" @click="deleteItem(i)"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="form d-flex justify-content-between align-items-center">
+                            <input type="text" placeholder="Aggiungi una nuova voce alla tua lista" class="form-control"
+                                v-model="newItem.text" @keyup.enter="addNewItem(newItem)">
+                            <button class="btn btn-warning" @click="addNewItem(newItem)"><i
+                                    class="fa-regular fa-square-plus fa-xl text-light"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
     </main>
 </body>
 
