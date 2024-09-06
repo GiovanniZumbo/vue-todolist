@@ -1,4 +1,4 @@
-.striked span {
+.striked {
     text-decoration: line-through;
     color: gray;
 }

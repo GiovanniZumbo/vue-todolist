@@ -4,10 +4,10 @@ createApp({
     data() {
         return {
 
-            newItemText: ' ',
+            newItemText: '',
 
             itemList: [{
-                text: " Fare la spesa",
+                text: "Fare la spesa",
                 done: false,
             },
             {
@@ -42,8 +42,9 @@ createApp({
         // * Aggiunge il nuovo oggetto dentro l'array lista
 
         addNewItem(newtext) {
-            if (newtext.length = ' ') alert("Non hai inserito un valore");
-            else {
+            if (!newtext.length) {
+                alert("Non hai inserito un valore");
+            } else {
                 this.itemList.push({
                     text: newtext,
                     done: false
@@ -53,7 +54,7 @@ createApp({
         },
 
         clearNewItemText() {
-            this.newItemText = ' ';
+            this.newItemText = '';
         },
 
         // * Rimuove un elemento dalla lista
@@ -64,8 +65,8 @@ createApp({
         },
 
         // * Item barrato
-        strikeItem() {
-            this.itemList.done = true;
+        strikeItem(index) {
+            this.itemList[index].done = !this.itemList[index].done
         },
 
     }
